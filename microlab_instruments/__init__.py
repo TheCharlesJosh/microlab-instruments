@@ -6,22 +6,22 @@ __email__ = 'kmonisit@gmail.com'
 __version__ = '0.1.0'
 
 from microlab_instruments import \
-    Arceus, \
-    Meloetta, \
-    Xerneas, \
-    Darkrai, \
-    Deoxys, \
-    Genesect, \
-    Giratina, \
-    Heatran, \
-    Ho_oh, \
-    Kyurem, \
     Rayquaza, \
-    Yveltal, \
+    Groudon, \
+    Kyogre, \
+    Kyurem, \
     Zygarde, \
-    Chen, \
-    Traxex, \
-    Xin, \
-    Kerrigan
+    Dialga, \
+    Palkia, \
+    Regigigas, \
+    Xerneas, \
+    Yveltal, \
+    Zekrom, \
+    Giratina, \
+    Reshiram, \
+    Meleotta, \
+    Aria, \
+    Pirouette, \
+    Deoxys
 from base_classes import AardvarkInstrument as Aardvark
 

@@ -5,133 +5,134 @@ import base_classes as bc
 from struct import pack, unpack
 
 # FPGA Instruments
-KERRIGAN = {
-    'nickname'          : 'kerrigan',
-    'name'              : 'Xilinx Virtex 5',
-    'address'           : 0x55,
+DEOXYS = {
+    'nickname': 'deoxys',
+    'name': 'Xilinx Virtex 5',
+    'address': 0x55,
     }
 
 # I2C Instruments
-CHEN     = {
-    'nickname'          : 'chen',
-    'name'              : 'I2C Mux Thing',
-    'address'           : 0x70,
+MELEOTTA = {
+    'nickname': 'meleotta',
+    'name': 'I2C Mux Thing',
+    'address': 0x70,
     }
-TRAXEX   = {
-    'nickname'          : 'traxex',
-    'name'              : 'Sensirion STS21 Temperature Sensor',
-    'address'           : 0x4A,
-    'mux_address'       : 0x04,
+ARIA = {
+    'nickname': 'aria',
+    'name': 'Sensirion STS21 Temperature Sensor',
+    'address': 0x4A,
+    'mux_address': 0x04,
     }
-XIN      = {
-    'nickname'          : 'xin',
-    'name'              : 'Sensirion STS21 Temperature Sensor',
-    'address'           : 0x4A,
-    'mux_address'       : 0x05,
+PIROUETTE = {
+    'nickname': 'pirouette',
+    'name': 'Sensirion STS21 Temperature Sensor',
+    'address': 0x4A,
+    'mux_address': 0x05,
     }
 
 # GPIB Instruments
-ARCEUS   = {
-    'nickname'          : 'arceus',
-    'name'              : 'Agilent 8753ES S-Parameter Network Analyzer',
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
+RAYQUAZA = {
+    'nickname': 'rayquaza',
+    'name': 'Agilent 8753ES S-Parameter Network Analyzer',
+    'get_byte_order': '',
+    'byte_order_little': '',
     }
-MELOETTA = {
-    'nickname'          : 'meloetta',
-    'name'              : 'Hewlett-Packard 6623A System DC Power Supply',
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
+GROUDON = {
+    'nickname': 'groudon',
+    'name': 'Hewlett-Packard 6623A System DC Power Supply',
+    'get_byte_order': '',
+    'byte_order_little': '',
     }
-XERNEAS  = {
-    'nickname'          : 'xerneas',
-    'name'              : 'Hewlett-Packard 4156A Precision Semiconductor Parameter Analyzer',
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
+KYOGRE = {
+    'nickname': 'kyogre',
+    'name': 'Hewlett-Packard 4156A Precision Semiconductor Parameter Analyzer',
+    'get_byte_order': '',
+    'byte_order_little': '',
     }
 
 # TCPIP Instruments
-DARKRAI  = {
-    'nickname'          : 'darkrai',
-    'name'              : 'Agilent N9020A MXA Signal Analyzer',
-    'socket'            : ('192.168.1.5', 5025),
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
+KYUREM = {
+    'nickname': 'kyurem',
+    'name':  'Agilent N9020A MXA Signal Analyzer',
+    'socket': ('192.168.1.5', 5025),
+    'get_byte_order': '',
+    'byte_order_little': '',
     }
-DEOXYS   = {
-    'nickname'          : 'deoxys',
-    'name'              : 'Agilent InfiniiVision MSO7104A Mixed Signal Oscilloscope',
-    'socket'            : ('192.168.1.10', 5025),
-    'get_byte_order'    : ':waveform:byteorder?',
-    'byte_order_little' : 'LSBF',
+ZYGARDE = {
+    'nickname': 'zygarde',
+    'name': 'Agilent InfiniiVision MSO7104A Mixed Signal Oscilloscope',
+    'socket': ('192.168.1.10', 5025),
+    'get_byte_order': ':waveform:byteorder?',
+    'byte_order_little': 'LSBF',
     }
-GENESECT = {
-    'nickname'          : 'genesect',
-    'name'              : 'Agilent B2962A Power Source',
-    'socket'            : ('192.168.1.9', 5025),
-    'get_byte_order'    : ':format:border?',
-    'byte_order_little' : 'NORM',
-    'get_data_format'   : ':format:data?',
+DIALGA = {
+    'nickname': 'dialga',
+    'name': 'Agilent B2962A Power Source',
+    'socket': ('192.168.1.9', 5025),
+    'get_byte_order': ':format:border?',
+    'byte_order_little': 'NORM',
+    'get_data_format': ':format:data?',
     'data_format_single': 'REAL,32',
     'data_format_double': 'REAL,64',
+    }
+PALKIA = {
+    'nickname': 'palkia',
+    'name': 'Agilent B2962A Power Source',
+    'socket': ('192.168.1.8', 5025),
+    'get_byte_order': ':format:border?',
+    'byte_order_little': 'NORM',
+    'get_data_format': ':format:data?',
+    'data_format_single': 'REAL,32',
+    'data_format_double': 'REAL,64',
+    }
+REGIGIGAS = {
+    'nickname': 'regigigas',
+    'name': 'Agilent 16803A Logic Analyzer',
+    'socket': ('192.168.1.11', 5025),
+    'get_byte_order': '',
+    'byte_order_little': '',
+    }
+XERNEAS = {
+    'nickname': 'xerneas',
+    'name': 'Agilent N5182A MXG Vector Signal Generator',
+    'socket': ('192.168.1.4', 5025),
+    'get_byte_order': '',
+    'byte_order_little': '',
+    }
+YVELTAL = {
+    'nickname': 'yveltal',
+    'name': 'Agilent N5183A MXG Analog Signal Generator',
+    'socket': ('192.168.1.3', 5025),
+    'get_byte_order': '',
+    'byte_order_little': '',
+    }
+ZEKROM = {
+    'nickname': 'zekrom',
+    'name': 'Agilent E4443A PSA Series Spectrum Analyzer',
+    'socket': ('192.168.1.2', 5025),
+    'get_byte_order': '',
+    'byte_order_little': '',
     }
 GIRATINA = {
-    'nickname'          : 'giratina',
-    'name'              : 'Agilent B2962A Power Source',
-    'socket'            : ('192.168.1.8', 5025),
-    'get_byte_order'    : ':format:border?',
-    'byte_order_little' : 'NORM',
-    'get_data_format'   : ':format:data?',
+    'nickname': 'giratina',
+    'name': 'Agilent B2902A Precision Source/Measure Unit',
+    'socket': ('192.168.1.7', 5025),
+    'get_byte_order': ':format:border?',
+    'byte_order_little': 'NORM',
+    'get_data_format': ':format:data?',
     'data_format_single': 'REAL,32',
     'data_format_double': 'REAL,64',
     }
-HEATRAN  = {
-    'nickname'          : 'heatran',
-    'name'              : 'Agilent 16803A Logic Analyzer',
-    'socket'            : ('192.168.1.11', 5025),
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
-    }
-HO_OH    = {
-    'nickname'          : 'ho_oh',
-    'name'              : 'Agilent N5182A MXG Vector Signal Generator',
-    'socket'            : ('192.168.1.4', 5025),
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
-    }
-KYUREM   = {
-    'nickname'          : 'kyurem',
-    'name'              : 'Agilent N5183A MXG Analog Signal Generator',
-    'socket'            : ('192.168.1.3', 5025),
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
-    }
-RAYQUAZA = {
-    'nickname'          : 'rayquaza',
-    'name'              : 'Agilent E4443A PSA Series Spectrum Analyzer',
-    'socket'            : ('192.168.1.2', 5025),
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
-    }
-YVELTAL  = {
-    'nickname'          : 'yveltal',
-    'name'              : 'Agilent B2902A Precision Source/Measure Unit',
-    'socket'            : ('192.168.1.7', 5025),
-    'get_byte_order'    : ':format:border?',
-    'byte_order_little' : 'NORM',
-    'get_data_format'   : ':format:data?',
-    'data_format_single': 'REAL,32',
-    'data_format_double': 'REAL,64',
-    }
-ZYGARDE  = {
-    'nickname'          : 'zygarde',
-    'name'              : 'Agilent E5071C ENA Series Network Analyzer',
-    'socket'            : ('192.168.1.6', 5025),
-    'get_byte_order'    : '',
-    'byte_order_little' : '',
+RESHIRAM = {
+    'nickname': 'reshiram',
+    'name': 'Agilent E5071C ENA Series Network Analyzer',
+    'socket': ('192.168.1.6', 5025),
+    'get_byte_order': '',
+    'byte_order_little': '',
     }
 
-class Kerrigan(bc.FPGAInstrument):
+
+class Deoxys(bc.FPGAInstrument):
     def __init__(self, aardvark):
         """Initialize the FPGA.
 
@@ -143,13 +144,13 @@ class Kerrigan(bc.FPGAInstrument):
             import microlab_instruments as mi
 
             aa = mi.Aardvark()
-            kerrigan = mi.Kerrigan(aa)
+            kerrigan = mi.Deoxys(aa)
         """
-        self.DATA = KERRIGAN
-        super(Kerrigan, self).__init__(aardvark=aardvark)
+        self.DATA = DEOXYS
+        super(Deoxys, self).__init__(aardvark=aardvark)
 
 
-class Chen(bc.I2CMuxInstrument):
+class Meleotta(bc.I2CMuxInstrument):
     def __init__(self, aardvark):
         """Initialize the I2C multiplexer.
 
@@ -161,13 +162,13 @@ class Chen(bc.I2CMuxInstrument):
             import microlab_instruments as mi
 
             aa = mi.Aardvark()
-            chen = mi.Chen(aa)
+            chen = mi.Meleotta(aa)
         """
-        self.DATA = CHEN
-        super(Chen, self).__init__(aardvark=aardvark)
+        self.DATA = MELEOTTA
+        super(Meleotta, self).__init__(aardvark=aardvark)
 
 
-class Traxex(bc.TempSensorInstrument):
+class Aria(bc.TempSensorInstrument):
     def __init__(self, aardvark, mux):
         """Initialize a Sensirion STS21 temperature sensor.
 
@@ -179,14 +180,14 @@ class Traxex(bc.TempSensorInstrument):
             import microlab_instruments as mi
 
             aa = mi.Aardvark()
-            traxex = mi.Traxex(aa)
-            print traxex.read_temp()
+            aria = mi.Aria(aa)
+            print aria.read_temp()
         """
-        self.DATA = TRAXEX
-        super(Traxex, self).__init__(aardvark=aardvark, mux=mux)
+        self.DATA = ARIA
+        super(Aria, self).__init__(aardvark=aardvark, mux=mux)
 
 
-class Xin(bc.TempSensorInstrument):
+class Pirouette(bc.TempSensorInstrument):
     def __init__(self, aardvark, mux):
         """Initialize a Sensirion STS21 temperature sensor.
 
@@ -198,41 +199,41 @@ class Xin(bc.TempSensorInstrument):
             import microlab_instruments as mi
 
             aa = mi.Aardvark()
-            xin = mi.Xin(aa)
-            print xin.read_temp()
+            pirouette = mi.Pirouette(aa)
+            print pirouette.read_temp()
         """
-        self.DATA = XIN
-        super(Xin, self).__init__(aardvark=aardvark, mux=mux)
+        self.DATA = PIROUETTE
+        super(Pirouette, self).__init__(aardvark=aardvark, mux=mux)
 
 
-class Arceus(bc.GPIBInstrument):
+class Rayquaza(bc.GPIBInstrument):
     def __init__(self):
-        self.DATA = ARCEUS
-        super(Arceus, self).__init__(nickname=self.DATA['nickname'])
+        self.DATA = RAYQUAZA
+        super(Rayquaza, self).__init__(nickname=self.DATA['nickname'])
 
 
-class Meloetta(bc.GPIBInstrument):
+class Groudon(bc.GPIBInstrument):
     def __init__(self):
-        self.DATA = MELOETTA
-        super(Meloetta, self).__init__(nickname=self.DATA['nickname'])
+        self.DATA = GROUDON
+        super(Groudon, self).__init__(nickname=self.DATA['nickname'])
 
 
-class Xerneas(bc.GPIBInstrument):
+class Kyogre(bc.GPIBInstrument):
     def __init__(self):
-        self.DATA = XERNEAS
-        super(Xerneas, self).__init__(nickname=self.DATA['nickname'])
+        self.DATA = KYOGRE
+        super(Kyogre, self).__init__(nickname=self.DATA['nickname'])
 
 
-class Darkrai(bc.TCPIPInstrument):
+class Kyurem(bc.TCPIPInstrument):
     def __init__(self):
-        self.DATA = DARKRAI
-        super(Darkrai, self).__init__(socket_pair=self.DATA['socket'])
+        self.DATA = KYUREM
+        super(Kyurem, self).__init__(socket_pair=self.DATA['socket'])
 
 
-class Deoxys(bc.TCPIPInstrument):
+class Zygarde(bc.TCPIPInstrument):
     def __init__(self):
-        self.DATA = DEOXYS
-        super(Deoxys, self).__init__(socket_pair=self.DATA['socket'])
+        self.DATA = ZYGARDE
+        super(Zygarde, self).__init__(socket_pair=self.DATA['socket'])
         self.write(':waveform:byteorder msbfirst')
         self.write(':waveform:format word')
         self.write('*OPC')
@@ -288,7 +289,7 @@ class Deoxys(bc.TCPIPInstrument):
                     e -= 1
                 e += 1
                 f &= ~0x00000400
-        elif e == 0x1F: # exponent is 31
+        elif e == 0x1F:  # exponent is 31
             if f == 0x00:
                 hpad = int((s << 31) | 0x7F800000)
             else:
@@ -303,7 +304,7 @@ class Deoxys(bc.TCPIPInstrument):
         return out
 
     def read_preamble(self):
-        """Read the waveform preamble from Deoxys.  It contains the following
+        """Read the waveform preamble from Zygarde.  It contains the following
         metadata about the waveform data:
 
         :returns out:
@@ -366,12 +367,44 @@ class Deoxys(bc.TCPIPInstrument):
         return out
 
 
-class Genesect(bc.TCPIPInstrument):
+class Dialga(bc.TCPIPInstrument):
     def __init__(self):
-        self.DATA = GENESECT
-        super(Genesect, self).__init__(socket_pair=self.DATA['socket'])
+        self.DATA = DIALGA
+        super(Dialga, self).__init__(socket_pair=self.DATA['socket'])
         self.write(':format:data real,32')
         self.write('*OPC')
+
+
+class Palkia(bc.TCPIPInstrument):
+    def __init__(self):
+        self.DATA = PALKIA
+        super(Palkia, self).__init__(socket_pair=self.DATA['socket'])
+        self.write(':format:data real,32')
+        self.write('*OPC')
+
+
+class Regigigas(bc.TCPIPInstrument):
+    def __init__(self):
+        self.DATA = REGIGIGAS
+        super(Regigigas, self).__init__(socket_pair=self.DATA['socket'])
+
+
+class Xerneas(bc.TCPIPInstrument):
+    def __init__(self):
+        self.DATA = XERNEAS
+        super(Xerneas, self).__init__(socket_pair=self.DATA['socket'])
+
+
+class Yveltal(bc.TCPIPInstrument):
+    def __init__(self):
+        self.DATA = YVELTAL
+        super(Yveltal, self).__init__(socket_pair=self.DATA['socket'])
+
+
+class Zekrom(bc.TCPIPInstrument):
+    def __init__(self):
+        self.DATA = ZEKROM
+        super(Zekrom, self).__init__(socket_pair=self.DATA['socket'])
 
 
 class Giratina(bc.TCPIPInstrument):
@@ -382,41 +415,7 @@ class Giratina(bc.TCPIPInstrument):
         self.write('*OPC')
 
 
-class Heatran(bc.TCPIPInstrument):
+class Reshiram(bc.TCPIPInstrument):
     def __init__(self):
-        self.DATA = HEATRAN
-        super(Heatran, self).__init__(socket_pair=self.DATA['socket'])
-
-
-class Ho_oh(bc.TCPIPInstrument):
-    def __init__(self):
-        self.DATA = HO_OH
-        super(Ho_oh, self).__init__(socket_pair=self.DATA['socket'])
-
-
-class Kyurem(bc.TCPIPInstrument):
-    def __init__(self):
-        self.DATA = KYUREM
-        super(Kyurem, self).__init__(socket_pair=self.DATA['socket'])
-
-
-class Rayquaza(bc.TCPIPInstrument):
-    def __init__(self):
-        self.DATA = RAYQUAZA
-        super(Rayquaza, self).__init__(socket_pair=self.DATA['socket'])
-
-
-class Yveltal(bc.TCPIPInstrument):
-    def __init__(self):
-        self.DATA = YVELTAL
-        super(Yveltal, self).__init__(socket_pair=self.DATA['socket'])
-        self.write(':format:data real,32')
-        self.write('*OPC')
-
-
-class Zygarde(bc.TCPIPInstrument):
-    def __init__(self):
-        self.DATA = ZYGARDE
-        super(Zygarde, self).__init__(socket_pair=self.DATA['socket'])
-
-
+        self.DATA = RESHIRAM
+        super(Reshiram, self).__init__(socket_pair=self.DATA['socket'])

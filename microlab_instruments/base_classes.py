@@ -71,7 +71,7 @@ class SCPIInstrument(object):
         commands = []
         for r in raw:
             # Discard comments and trim whitespace
-            if r.strip().startswith('#') or bool(r.strip()) == False:
+            if r.strip().startswith('#') or bool(r.strip()) is False:
                 continue
             else:
                 comm = r.split('#')[0].strip()
