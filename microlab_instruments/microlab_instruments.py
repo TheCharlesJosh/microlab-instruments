@@ -144,7 +144,7 @@ class Deoxys(bc.FPGAInstrument):
             import microlab_instruments as mi
 
             aa = mi.Aardvark()
-            kerrigan = mi.Deoxys(aa)
+            deoxys = mi.Deoxys(aa)
         """
         self.DATA = DEOXYS
         super(Deoxys, self).__init__(aardvark=aardvark)
@@ -162,7 +162,7 @@ class Meleotta(bc.I2CMuxInstrument):
             import microlab_instruments as mi
 
             aa = mi.Aardvark()
-            chen = mi.Meleotta(aa)
+            meleotta = mi.Meleotta(aa)
         """
         self.DATA = MELEOTTA
         super(Meleotta, self).__init__(aardvark=aardvark)
