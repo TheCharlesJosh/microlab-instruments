@@ -115,19 +115,19 @@ class SCPIInstrument(object):
 
         A typical use case is obtaining a screenshot of the instrument panel.
         The following code is for the Agilent B2902A Precision Source Measure
-        Unit, nicknamed 'Yveltal'.
+        Unit, nicknamed 'Giratina'.
 
         .. code-block:: python
 
             import microlab_instruments as mi
 
-            yveltal = mi.Yveltal()
-            yveltal.write(':DISP:ENAB ON')
-            yveltal.write(':DISP:VIEW GRAP')
-            yveltal.write(':HCOP:SDUM:FORM JPG')
-            yveltal.ask_ascii('*OPC?')
-            yveltal.write(':HCOP:SDUM:DATA?')
-            image_data = yveltal.read_binary()
+            giratina = mi.Giratina()
+            giratina.write(':DISP:ENAB ON')
+            giratina.write(':DISP:VIEW GRAP')
+            giratina.write(':HCOP:SDUM:FORM JPG')
+            giratina.ask_ascii('*OPC?')
+            giratina.write(':HCOP:SDUM:DATA?')
+            image_data = giratina.read_binary()
 
             file_handle = open('screendump.jpg', 'wb')
             file_handle.write(image_data)
@@ -160,9 +160,9 @@ class SCPIInstrument(object):
         # Convert floating-point to Python ``float``
         # single- or double-precision
         if self.DATA['nickname'] in \
-                ('genesect',
-                 'giratina',
-                 'yveltal'):
+                ('dialga',
+                 'palkia',
+                 'giratina'):
 
             # Calculate number of floating point data points
             # Query precision and discard newline character
@@ -187,7 +187,7 @@ class SCPIInstrument(object):
             return out
         # half-precision
         elif self.DATA['nickname'] in \
-                ('deoxys',):
+                ('zygarde',):
             # Chop the stream into 16-bit elements
             stream = [w for w in self._chop16(stream)]
 
