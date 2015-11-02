@@ -1,0 +1,29 @@
+This will be the unofficial documentation of the Kyle and Charles codes.
+
+Two main files:
+| oscui.py 	(Handling the Oscilloscope)
+| precision.py	(Handling the Power Sources)
+
+At the very least, they work well.
+
+CHANGELOG: Power Sources
+	* Can now set to a constant voltage source with current compliance
+	* Can now fetch current flowing through the system
+CHANGELOG: Oscilloscope
+	* Can now plot the points nice and smoothly
+	* Can grab both the frequency and the peak-to-peak voltages
+	* Can get the data one by one
+CHANGELOG: Overall
+	* Find a way to present data in SI prefix
+
+
+TODO: Power Sources
+	* (Cool kung kaya) Create a signal generator
+TODO: Oscilloscope
+	* Dump the image to the computer and automatically open the file
+	* Support error detection for 'no edges'.
+	* Specifically the measure:results? and measure:statistics?
+	* Also clear the goddamn buffer
+TODO: Overall
+	* Read the manual again.
+	

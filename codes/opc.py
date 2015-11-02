@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 
 import microlab_instruments as mi
+import time
 
-giratina = mi.Giratina()
-
-print giratina.ask_ascii('*OPC?')
+genesect = mi.Genesect()
+initTime = time.time()
+while genesect.ask_ascii('*OPC?'):
+	print time.time() - initTime
+	break
+	#deoxys.write(':autoscale')

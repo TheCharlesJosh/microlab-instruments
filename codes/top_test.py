@@ -124,43 +124,58 @@ while True:
 	fpga_write(0x04,0x01)
 	fpga_write(0x05,0x00)
 	fpga_write(0x06,0x00)
+
 	#fpga_write(0x09,0x02)
 	#fpga_write(0x09,0x03)
 	
 	fpga_write(0x08,0x01) #turn on the 7.2MHz clock from FPGA
 	fpga_write(0x07,0x03) #turn on comp_en_in (bit 1) and en_ctrl_pads (bit 0)
+	fpga_write(0x0A,0x01) #turn on 2MHz clock for filter
 
-	
-	fpga_write(0x09,0x01)
-	fpga_write(0x09,0x03)
-	time.sleep(1)
-	scan_operation('peripheral')
-	scan_operation('chain')
-	RESPONSE = aa.spi_write(INIT)
-	b = scanchain(RESPONSE)
-	b.read_all_fields()
-	fpga_write(0x09,0x01)
-	time.sleep(1)
-	scan_operation('peripheral')
-	scan_operation('chain')
-	RESPONSE = aa.spi_write(INIT)
-	b = scanchain(RESPONSE)
+        #temperature sensor test sequence
+	#fpga_write(0x09,0x01)
+	#fpga_write(0x09,0x03)
+	#time.sleep(1)
+	#scan_operation('peripheral')
+	#scan_operation('chain')
+	#RESPONSE = aa.spi_write(INIT)
+	#b = scanchain(RESPONSE)
 	#b.read_all_fields()
-	fpga_write(0x09,0x03)
-	time.sleep(1)
-	scan_operation('peripheral')
-	scan_operation('chain')
-	RESPONSE = aa.spi_write(INIT)
-	b = scanchain(RESPONSE)
-	b.read_all_fields()
+	#fpga_write(0x09,0x01)
+	#time.sleep(1)
+	#scan_operation('peripheral')
+	#scan_operation('chain')
+	#RESPONSE = aa.spi_write(INIT)
+	#b = scanchain(RESPONSE)
+	#fpga_write(0x09,0x03)
+	#time.sleep(1)
+	#scan_operation('peripheral')
+	#scan_operation('chain')
+	#RESPONSE = aa.spi_write(INIT)
+	#b = scanchain(RESPONSE)
+	#b.read_all_fields()
+        #end of temp sensor test
 
+	#current sensor test sequence 
+        fpga_write(0x09,0x82) #reset curr sense, enable one shot
+	fpga_write(0x09,0x81) #enable curr sense
+	time.sleep(.5) #wait for conversion to finish
+        scan_operation('peripheral')
+        scan_operation('chain')
+        RESPONSE = aa.spi_write(INIT) #flush it out
+        b = scanchain(RESPONSE)
+        b.read_field('current_data')
+	b.read_field('current_data_ready')
+	#b.read_all_fields()
+	
+	#end of current sensor test
 
 	#fpga_write(0x02,0x01)
 	#fpga_write(0x08,0x01)
 	#fpga_write(0x09,0x03)
 	#fpga_write(0x0A,0x01)
 	#fpga_write(0x0B,0x01)
-	#fpga_write(0x0C,0x01)
+	fpga_write(0x0C,0x00)
 	#fpga_write(0x0D,0x00)
 	#fpga_write(0x0E,0x00)
 
