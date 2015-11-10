@@ -2,8 +2,19 @@ import microlab_instruments as mi
 import matplotlib.pyplot as plotlab
 import numpy as np
 import math
+import time
 
 deoxys = mi.Deoxys()
+
+argument = {
+	'all': 'on',
+	'current': 'current',
+	'min': 'minimum',
+	'max': 'maximum',
+	'mean': 'mean',
+	'std dev': 'stdd',
+	'count': 'count'
+}
 
 def siPrefix(number):
 	_prefix = 'yzafpnum kMGTPEZY'
@@ -48,6 +59,31 @@ def plotData(ops='plot', minIndex=None, maxIndex=None):
 def autoScale():
 	deoxys.write(':autoscale')
 
+def quickMeas():
+	deoxys.write(':autoscale')
+	deoxys.write(':marker:mode off')
+	deoxys.write(':marker:mode measurement')
+
+def getMeas(data='all', mode='vpp', init=False):
+	if init:		
+		autoScale()
+		quickMeas()
+		time.sleep(1)
+
+	if mode == 'vdc':
+		deoxys.write(':measure:vaverage?')
+		return siPrefix(float(deoxys.read()))
+
+	command = ':measure:statistics {}'.format(argument[data])
+	deoxys.write(command)
+	
+	deoxys.write(':measure:results?')
+	result = deoxys.read()[:-1]
+	if data == 'on': #TODO broken feature pls
+		return siPrefix(float(result.split(',')))
+	else:
+		return siPrefix(float(result.split(',', 1)[1 if mode == 'vpp' else 0]))
+
 def getFreq(prettify=False):
 	#TODO The universes* have no edge.
 	deoxys.write(':measure:frequency?')
@@ -60,28 +96,6 @@ def getVpp(prettify=False):
 def getVabs(prettify=False):
 	deoxys.write(':measure:vaverage?')
 	return siPrefix(float(deoxys.read())) if prettify else float(deoxys.read())
-
-def stDev(samples, ops='vpp', prettify=False):
-	a = []
-	for x in range(0, samples):
-		if ops == 'vpp':
-			a.append(getVpp())
-		if ops == 'vabs':
-			a.append(getVabs())
-		elif ops == 'freq':
-			a.append(getFreq())
-	return siPrefix(np.std(a)) if prettify else np.std(a)
-
-def mean(samples, ops='vpp', prettify=False):
-	a = []
-	for x in range(0, samples):
-		if ops == 'vpp':
-			a.append(getVpp())
-		elif ops == 'vabs':
-			a.append(getVabs())		
-		elif ops == 'freq':
-			a.append(getFreq())
-	return siPrefix(np.mean(a)) if prettify else np.mean(a)
 
 def stats(samples, ops='vpp', prettify=False):
 	a = []
@@ -97,7 +111,7 @@ def stats(samples, ops='vpp', prettify=False):
 
 #autoScale()
 #plotData('plot')
-stats(100, 'vabs', True)
+#stats(100, 'vabs', True)
 #stats(100, 'freq', True)
 #print '{:>30}: {}'.format('Standard Dev (V)', stDev(250, 'volts', True))
 #print '{:>30}: {}'.format('Standard Dev (Hz)', stDev(250, 'freq', True))
@@ -105,3 +119,26 @@ stats(100, 'vabs', True)
 #print '{:>30}: {}'.format('Mean (Hz)', mean(250, 'freq', True))
 #print '{:>30}: {}'.format('Frequency (Hz)', getFreq(True))
 #print '{:>30}: {}'.format('Peak-to-Peak Voltage (V)', getVpp(True))
+
+
+# def mean(samples, ops='vpp', prettify=False):
+# 	a = []
+# 	for x in range(0, samples):
+# 		if ops == 'vpp':
+# 			a.append(getVpp())
+# 		elif ops == 'vabs':
+# 			a.append(getVabs())		
+# 		elif ops == 'freq':
+# 			a.append(getFreq())
+# 	return siPrefix(np.mean(a)) if prettify else np.mean(a)
+
+# def stDev(samples, ops='vpp', prettify=False):
+# 	a = []
+# 	for x in range(0, samples):
+# 		if ops == 'vpp':
+# 			a.append(getVpp())
+# 		if ops == 'vabs':
+# 			a.append(getVabs())
+# 		elif ops == 'freq':
+# 			a.append(getFreq())
+# 	return siPrefix(np.std(a)) if prettify else np.std(a)
